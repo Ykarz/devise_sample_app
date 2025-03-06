@@ -1,11 +1,16 @@
 <div class="flex flex-row justify-center items-center min-h-screen">
   <div class="w-full max-w-lg space-y-6 bg-white p-6 rounded-lg shadow-md">
-    <h1 class="text-center text-2xl font-bold">ログイン画面</h1>
+    <h1 class="text-center text-2xl font-bold">ログイン</h1>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="mb-3 mt-4 text-left">
+        <%= f.label :user_name, class: "block text-gray-700" %>
+        <%= f.text_field :email, class: "w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500", placeholder: "ユーザー名" %>
+      </div>
+
+      <div class="mb-3 mt-4 text-left">
         <%= f.label :email, class: "block text-gray-700" %>
-        <%= f.email_field :email, class: "w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500", placeholder: "電話番号, ユーザ名, Eメール" %>
+        <%= f.email_field :email, class: "w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500", placeholder: "Eメール" %>
       </div>
 
       <div class="mb-3 text-left">
