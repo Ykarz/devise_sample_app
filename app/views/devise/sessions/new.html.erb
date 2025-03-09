@@ -1,8 +1,8 @@
-<div class="flex flex-row justify-center items-center min-h-screen">
+<div class="flex justify-center items-center min-h-screen">
   <div class="w-full max-w-lg space-y-6 bg-white p-6 rounded-lg shadow-md">
     <h1 class="text-center text-2xl font-bold">ログイン</h1>
 
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= form_with model: @user, url: session_path(resource_name), local: true do |f| %>
       <div class="mb-3 mt-4 text-left">
         <%= f.label :user_name, class: "block text-gray-700" %>
         <%= f.text_field :email, class: "w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500", placeholder: "ユーザー名" %>
@@ -33,6 +33,10 @@
     <% elsif alert %>
       <p class="text-red-500 mt-2"><%= alert %></p>
     <% end %>
+
+    <div class="bg-white shadow-md rounded-lg p-4 text-center w-full mt-3">
+      <%= link_to "アカウントを持っていない方はこちら", new_user_registration_path, class: "text-sm my-4 text-blue-500 no-underline" %>
+    </div>
   </div>
 </div>
 
